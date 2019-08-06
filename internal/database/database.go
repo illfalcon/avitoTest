@@ -4,7 +4,7 @@ import "time"
 
 type Chat struct {
 	ID        int    `json:"id"`
-	Name      string `json:"name"`
+	Name      string `json:"name" gorm:"unique;not null"`
 	Users     []User `json:"users" gorm:"many2many:user_chats;"`
 	Messages  []Message
 	CreatedAt time.Time `json:"created_at"`
@@ -12,7 +12,7 @@ type Chat struct {
 
 type User struct {
 	ID        int       `json:"id"`
-	Username  string    `json:"username"`
+	Username  string    `json:"username" gorm:"unique;not null"`
 	Chats     []Chat    `gorm:"many2many:user_chats;"`
 	Messages  []Message `gorm:"foreignkey:AuthorID"`
 	CreatedAt time.Time `json:"created_at"`

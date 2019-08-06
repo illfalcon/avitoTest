@@ -1,7 +1,17 @@
 package main
 
-import "github.com/illfalcon/avitoTest/internal/sqlite"
+import (
+	"fmt"
+	"log"
+
+	"github.com/illfalcon/avitoTest/internal/sqlite"
+)
 
 func main() {
-	_, _ = sqlite.StartService()
+	s, _ := sqlite.StartService()
+	id, err := s.CreateChat("lkjbjhbjbkbbkjho", []int{})
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(id)
 }
