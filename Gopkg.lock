@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:1c70b4d7285f792bd387c1adac08825715147fa210b3d2826ffd2bf56be9455b"
+  name = "github.com/go-chi/chi"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "da24bba8dcd4021cafac38724bf10dccc97c3e36"
+  version = "v4.0.2"
+
+[[projects]]
   digest = "1:09424e4abeba1d2fc80c47c26347a3eed24f9cfd83173131dd048479ca6e041a"
   name = "github.com/jinzhu/gorm"
   packages = ["."]
@@ -37,6 +45,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/go-chi/chi",
     "github.com/jinzhu/gorm",
     "github.com/mattn/go-sqlite3",
     "github.com/pkg/errors",

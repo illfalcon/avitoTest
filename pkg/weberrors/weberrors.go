@@ -2,6 +2,10 @@ package weberrors
 
 import "github.com/pkg/errors"
 
+type Err struct {
+	Error string `json:"error"`
+}
+
 var (
 	ErrNotFound     = errors.New("requested item is not found")
 	ErrUnauthorized = errors.New("unauthorized access")
