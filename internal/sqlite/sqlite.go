@@ -155,7 +155,7 @@ func (s service) GetChatsOfUser(userID int) ([]database.Chat, error) {
 	}).Related(&u.Chats, "Chats")
 	sort.Slice(u.Chats, func(i, j int) bool {
 		if len(u.Chats[i].Messages) == 0 {
-			return len(u.Chats[j].Messages) != 0
+			return len(u.Chats[j].Messages) == 0
 		}
 		if len(u.Chats[j].Messages) == 0 {
 			return true
