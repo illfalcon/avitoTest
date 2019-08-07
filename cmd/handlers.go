@@ -64,7 +64,6 @@ func switchErrors(w http.ResponseWriter, err error) {
 func isJSONRequest(w http.ResponseWriter, r *http.Request) bool {
 	var e weberrors.Err
 	ct := r.Header.Get("Content-Type")
-	log.Println(ct)
 	if ct != jsonType {
 		e.Error = "wrong content type"
 		jsonErr, _ := json.Marshal(e)
@@ -87,13 +86,11 @@ func (h Handlers) AddUser(w http.ResponseWriter, r *http.Request) {
 	var nu validation.NewUser
 	err := validation.Decode(r, &nu)
 	if err != nil {
-		log.Println(err)
 		switchErrors(w, err)
 		return
 	}
 	resp, err := h.interactor.AddUser(nu.Username)
 	if err != nil {
-		log.Println(err)
 		switchErrors(w, err)
 		return
 	}

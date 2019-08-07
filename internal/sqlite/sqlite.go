@@ -1,7 +1,6 @@
 package sqlite
 
 import (
-	"log"
 	"sort"
 
 	"github.com/illfalcon/avitoTest/internal/database"
@@ -72,8 +71,6 @@ func (s service) getUsers(ids []int) ([]database.User, error) {
 		//}
 		return nil, errors.Wrapf(err, "error in getUsers() when querying for ids %+v", ids)
 	}
-	log.Println(uu)
-	log.Println(ids)
 	return uu, nil
 }
 
@@ -119,9 +116,6 @@ func (s service) getUserByID(userID int) (database.User, error) {
 }
 
 func (s service) chatContainsUser(c database.Chat, u database.User) bool {
-	//var uu []database.User
-
-	log.Printf("%+v", c.Users)
 	for _, user := range c.Users {
 		if user.ID == u.ID {
 			return true
